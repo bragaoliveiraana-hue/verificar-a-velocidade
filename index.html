@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Verifica Velocidade</title>
+</head>
+<body>
+    <img src="multadetransito.png" alt="">
+
+<h1>Programa Verifica Velocidade</h1>
+
+<label>Velocidade Permitida:</label>
+<input type="number" id="permitida">
+
+<br><br>
+
+<label>Velocidade do Condutor:</label>
+<input type="number" id="condutor">
+
+<br><br>
+
+<button onclick="verificar()">Verificar Velocidade</button>
+
+<p id="resultado"></p>
+
+<script>
+function verificar() {
+    let permitida = Number(document.getElementById("permitida").value);
+    let condutor = Number(document.getElementById("condutor").value);
+
+    let limiteLeve = permitida + (permitida * 0.2);
+
+    if (condutor <= permitida) {
+        document.getElementById("resultado").innerText = "Situação: Sem Multa";
+    } 
+    else if (condutor <= limiteLeve) {
+        document.getElementById("resultado").innerText = "Situação: Multa Leve";
+    } 
+    else {
+        document.getElementById("resultado").innerText = "Situação: Multa Grave";
+    }
+}
+</script>
+
+</body>
+</html>
